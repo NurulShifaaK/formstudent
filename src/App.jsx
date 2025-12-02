@@ -9,6 +9,19 @@ const App = () => {
      setstuname("");
      setstuage("");
   }
+  const handleDelete=(removeid)=>{
+        const temarr=data.filter((_,i)=>{
+          if(removeid==i){
+            return false
+          }
+          else{
+            return true
+          }
+        })
+        setdata(temarr)
+
+    }
+
 
 
   return (
@@ -41,6 +54,8 @@ const App = () => {
           <tr>
             <td className='px-8 py-2 text-xl font-bold '>Name</td>
             <td className='px-8 py-2 text-xl font-bold'>Age</td>
+            <td className='px-8 py-2 text-xl font-bold'>Delete
+            </td>
           </tr>
         </thead>
               
@@ -50,6 +65,7 @@ const App = () => {
                 <tr>
                   <td className='text-black/40 text-xl p-1'>{item.stuname}</td>
                   <td className='text-black/40 text-xl p-1'>{item.stuage}</td>
+                   <td><button className='text-xl font-bold'onClick={()=>handleDelete(i)}>🗑️</button></td>
                   </tr>
                  ))}
         </tbody>
